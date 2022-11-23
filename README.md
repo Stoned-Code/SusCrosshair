@@ -1,6 +1,6 @@
 # Sus Crosshair Overlay
 Inspired by watching an Overwatch streamer. It overlays a form over Overwatch 2.
-
+![Alt text](https://raw.githubusercontent.com/Stoned-Code/SusCrosshair/master/images/form.png)
 ![Alt text](https://raw.githubusercontent.com/Stoned-Code/SusCrosshair/master/images/high%20noon.png "High Noon!")
 
 ## How to Use
