@@ -12,26 +12,13 @@ namespace SusReticle
         private ez _ez = new ez();
         private Process _owProcess;
         private bool _crosshairEnabled = false;
-
         public static bool CrosshairInvis = false;
-
+        private Thread _crosshairThread;
+        
         public susRet()
         {
             InitializeComponent();
             Instance = this;
-        }
-        private void exitButton_Click(object sender, EventArgs e) => Application.Exit();
-
-        private void header_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-                User32.DragWindow(Handle);
-        }
-
-        private void headerLabel_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-                User32.DragWindow(Handle);
         }
 
         private void GetProc()
@@ -43,8 +30,7 @@ namespace SusReticle
             _owProcess = processes.Length > 0 ? processes[0] : null;
         }
 
-        private Thread _crosshairThread;
-        private bool InitReticleForm()
+        private bool InitCrosshairForm()
         {
             try
             {
@@ -59,29 +45,34 @@ namespace SusReticle
                 return false;
             }
         }
-        
+
         private void CrosshairLoad()
         {
             GetProc();
 
             if (_owProcess == null)
-            {
                 return;
-            }
-
-            _owProcess.Exited += OWExited;
 
             Application.Run(new CrosshairForm());
+        }
+        
+        private void exitButton_Click(object sender, EventArgs e) => Application.Exit();
 
+        private void header_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                User32.DragWindow(Handle);
         }
 
-        private void OWExited(object? sender, EventArgs e)
+        private void headerLabel_MouseDown(object sender, MouseEventArgs e)
         {
-            Application.Exit();
+            if (e.Button == MouseButtons.Left)
+                User32.DragWindow(Handle);
         }
-
-        private void Form1_Load(object sender, EventArgs e)
+       
+        private void susRet_Load(object sender, EventArgs e)
         {
+            Instance = this;
             CrosshairSettings.Init();
             sizeTextBox.Text = CrosshairSettings.Instance.Size.ToString();
             redTextBox.Text = CrosshairSettings.Instance.R.ToString();
@@ -113,7 +104,7 @@ namespace SusReticle
                 crosshairToggle.BackColor = Color.Red;
                 crosshairToggle.Text = "Disable\r\nCrosshair";
                 
-                InitReticleForm();
+                InitCrosshairForm();
             }
 
             else
@@ -195,31 +186,16 @@ namespace SusReticle
             blueTextBox.Text = CrosshairSettings.Instance.B.ToString();
         }
 
-        private void SusRet_Click(object sender, EventArgs e)
-        {
-            headerLabel.Focus();
-        }
+        private void SusRet_Click(object sender, EventArgs e) => headerLabel.Focus();
 
-        private void header_Click(object sender, EventArgs e) => header.Focus();
+        private void header_Click(object sender, EventArgs e) => headerLabel.Focus();
 
-        private void headerLabel_Click(object sender, EventArgs e)
-        {
-            headerLabel.Focus();
-        }
+        private void headerLabel_Click(object sender, EventArgs e) => headerLabel.Focus();
 
-        private void redLabel_Click(object sender, EventArgs e)
-        {
-            redLabel.Focus();
-        }
+        private void redLabel_Click(object sender, EventArgs e) => redLabel.Focus();
 
-        private void greenLabel_Click(object sender, EventArgs e)
-        {
-            greenLabel.Focus();
-        }
+        private void greenLabel_Click(object sender, EventArgs e) => headerLabel.Focus();
 
-        private void blueLabel_Click(object sender, EventArgs e)
-        {
-            blueLabel.Focus();
-        }
+        private void blueLabel_Click(object sender, EventArgs e) => headerLabel.Focus();
     }
 }

@@ -208,7 +208,7 @@
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "susRet";
             this.Text = "Sus Crosshair";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.susRet_Load);
             this.Click += new System.EventHandler(this.SusRet_Click);
             this.header.ResumeLayout(false);
             this.header.PerformLayout();
