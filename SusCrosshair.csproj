@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Product>$(AssemblyName)</Product>
+    <Title></Title>
+    <AssemblyName>Sus Crosshair</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Remove="app.manifest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ezOverLay">
+      <HintPath>R:\Programming\Github Repositories\Other Repositories\ezOverLay.dll\ezOverLay\bin\Debug\ezOverLay.dll</HintPath>
+    </Reference>
+    <Reference Include="MathSC">
+      <HintPath>..\..\..\Github Repositories\My Repositories\Math_SC\bin\Release\MathSC.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
