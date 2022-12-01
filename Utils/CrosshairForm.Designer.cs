@@ -35,8 +35,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CrosshairForm";
             this.Text = "Crosshair";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.Reticle_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Reticle_Paint);
             this.ResumeLayout(false);

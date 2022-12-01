@@ -15,20 +15,22 @@ namespace SusReticle.Utils
         public CrosshairForm()
         {
             InitializeComponent();
-
         }
+
         public bool invisCrosshair = true;
         Color transparentColor = Color.FromArgb(69, 69, 69);
+        
         private void Reticle_Load(object sender, EventArgs e)
         {
             CheckForIllegalCrossThreadCalls = false;
 
-            this.BackColor = transparentColor;
-            this.TransparencyKey = transparentColor;
-            this.TopMost = true;
-            this.FormBorderStyle = FormBorderStyle.None;
+            TopMost = true;
+            BackColor = transparentColor;
+            TransparencyKey = transparentColor;
+            FormBorderStyle = FormBorderStyle.None;
             _overlay.ClickThrough(this.Handle);
             Crosshair = this;
+
             var thread = new Thread(this.Main) { IsBackground = true };
             thread.Start();
         }
@@ -39,14 +41,10 @@ namespace SusReticle.Utils
             {
                 _overlay.DoStuff(GameWindowName, this);
                 Refresh();
-                Thread.Sleep(10);
-            }
+                Thread.Sleep(100);
+            }       
         }
 
-        private void PaintString(PaintEventArgs e)
-        {
-
-        }
         private void Reticle_Paint(object sender, PaintEventArgs e)
         {
             if (susRet.CrosshairInvis)

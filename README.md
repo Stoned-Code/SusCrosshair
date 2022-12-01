@@ -13,4 +13,4 @@ Inspired by watching an Overwatch streamer. It overlays a form over Overwatch 2.
 ## Notes
 * Set your Overwatch 2 crosshair opacity to 0%.
 * Doesn't work in fullscreen mode.
-* Best to launch the crosshair, after launching Overwatch 2.
+* When launching the crosshair, make sure you launch it on the same screen as Overwatch 2.
